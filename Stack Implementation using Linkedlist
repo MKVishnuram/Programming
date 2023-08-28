@@ -1,0 +1,72 @@
+class StackUsingLinkedList<T>
+{
+    class Node
+    {
+        T data;
+        Node next;
+    
+    Node(T val)
+    {
+        data = val;
+        next = null;
+    }
+    }
+    
+    Node top;
+    StackUsingLinkedList()
+    {
+        top = null;
+    }
+    
+    public void push(T val)
+    {
+        Node newnode = new Node(val);
+        newnode.next = top;
+        top= newnode;
+    }
+    
+    public T pop()
+    {
+        T tmp = top.data;
+        top = top.next;
+        return tmp;
+    }
+    public void display()
+    {
+        Node temp = top;
+        while(temp!=null)
+        {
+            System.out.print(temp.data+" ");
+            temp = temp.next;
+        }
+    }
+    public T peek()
+    {
+        return top.data;
+    }
+    
+}
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        StackUsingLinkedList<Integer> s = new StackUsingLinkedList<Integer>();
+        s.push(10);
+        s.push(22);
+        s.push(33);
+        s.display();
+        
+         System.out.println();
+        System.out.println(s.peek());
+       s.push(99);
+        System.out.println();
+        System.out.println(s.peek());
+        
+       //s.pop();
+     
+       System.out.println();
+        s.display();
+       
+   
+    }
+}
